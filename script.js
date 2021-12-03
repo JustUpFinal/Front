@@ -6,6 +6,54 @@ var buttonClose
 buttonTresh.style.background = "#36281d";
 buttonTresh.style.color = "#ffffff";
 
+var url = 'https://backheironka.herokuapp.com/cameras';
+var xhr = new XMLHttpRequest();
+xhr.open('GET', url, false);
+xhr.send();
+var data = xhr.responseText;
+data = JSON.parse(data);
+list = []
+for (var i = 0; i < data.length; ++i) {
+    list[i] = [data[i]['addres_name'], String((i + 1) + '.jpg')];
+}
+prevList = document.getElementsByClassName("listsDL");
+if (prevList.length > 0)
+    prevList[0].remove();
+for (var i = 0; i < list.length; ++i) {
+    console.log(list[i]);
+    var listTag = document.createElement('dl');
+    var newLists = document.createElement('dt');
+    newLists.setAttribute('class', 'lists');
+    var label = document.createElement('label');
+    var photoBtn = document.createElement('img');
+    var buttonCheckBox = document.createElement('input');
+    console.log(list[i][0]);
+    label.innerText = list[i][0];
+    label.setAttribute('class', 'listLabel');
+    photoBtn.setAttribute('class', 'listButton');
+    photoBtn.setAttribute('src', list[i][1]);
+    buttonCheckBox.setAttribute('type', 'checkbox');
+    buttonCheckBox.setAttribute('class', 'listCheckBox');
+    newLists.appendChild(label);
+    newLists.appendChild(photoBtn);
+    newLists.appendChild(buttonCheckBox);
+    if (document.getElementsByClassName('listsDL').length == 0) {
+        listTag.setAttribute('class', 'listsDL');
+        listTag.appendChild(newLists);
+        parents = document.getElementsByClassName('listsDiv');
+        parents[0].appendChild(listTag);
+    } else {
+        parents = document.getElementsByClassName('listsDL');
+        parents[0].appendChild(newLists);
+    }
+}
+buttonTresh.style.background = "#36281d";
+buttonTresh.style.color = "#ffffff";
+buttonTreshStreet.style.background = "#ccccc5";
+buttonTreshStreet.style.color = "#000000";
+buttonDanger.style.background = "#ccccc5";
+buttonDanger.style.color = "#000000";
+
 if (buttonTresh.onclick = function() {
 
         var url = 'https://backheironka.herokuapp.com/cameras';
@@ -16,8 +64,7 @@ if (buttonTresh.onclick = function() {
         data = JSON.parse(data);
         list = []
         for (var i = 0; i < data.length; ++i) {
-            list[i] = [data[i]['addres_name'], data[i]['photo']];
-            console.log(data[i]['photo']);
+            list[i] = [data[i]['addres_name'], String((i + 1) + '.jpg')];
         }
         prevList = document.getElementsByClassName("listsDL");
         if (prevList.length > 0)

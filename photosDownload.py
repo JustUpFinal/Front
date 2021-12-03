@@ -13,4 +13,10 @@ for dat in data:
     print(dat['photo'])
 
     url = dat['photo']
-    urllib.request.urlretrieve(url, f'C:\\Users\\Егор\\Desktop\\Хакатон_Финал_2021\\сайт\\first\\{k}.jpg')
+    print(url)
+    download = 'https://drive.google.com/u/0/uc?id=' + str(dat['photo'].split('/d/')[1].split('/view')[0]) + '&export=download'
+    logo = urllib.request.urlopen(download).read()
+    name_input = str(k) + ".jpg"
+    f = open(name_input, "wb")
+    f.write(logo)
+    f.close()
