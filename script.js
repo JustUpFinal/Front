@@ -1,6 +1,7 @@
 var buttonTresh = document.getElementById("trash")
 var buttonTreshStreet = document.getElementById("streetTrash")
 var buttonDanger = document.getElementById("Danger")
+var archive = document.getElementById("archive")
 var buttonClose
 
 buttonTresh.style.background = "#36281d";
@@ -20,18 +21,16 @@ prevList = document.getElementsByClassName("listsDL");
 if (prevList.length > 0)
     prevList[0].remove();
 for (var i = 0; i < list.length; ++i) {
-    console.log(list[i]);
     var listTag = document.createElement('dl');
     var newLists = document.createElement('dt');
     newLists.setAttribute('class', 'lists');
     var label = document.createElement('label');
     var photoBtn = document.createElement('img');
     var buttonCheckBox = document.createElement('input');
-    console.log(list[i][0]);
     label.innerText = list[i][0];
     label.setAttribute('class', 'listLabel');
     photoBtn.setAttribute('class', 'listButton');
-    photoBtn.setAttribute('src', list[i][1]);
+    photoBtn.setAttribute('src', "first\\" + list[i][1]);
     buttonCheckBox.setAttribute('type', 'checkbox');
     buttonCheckBox.setAttribute('class', 'listCheckBox');
     newLists.appendChild(label);
@@ -70,18 +69,16 @@ if (buttonTresh.onclick = function() {
         if (prevList.length > 0)
             prevList[0].remove();
         for (var i = 0; i < list.length; ++i) {
-            console.log(list[i]);
             var listTag = document.createElement('dl');
             var newLists = document.createElement('dt');
             newLists.setAttribute('class', 'lists');
             var label = document.createElement('label');
             var photoBtn = document.createElement('img');
             var buttonCheckBox = document.createElement('input');
-            console.log(list[i][0]);
             label.innerText = list[i][0];
             label.setAttribute('class', 'listLabel');
             photoBtn.setAttribute('class', 'listButton');
-            photoBtn.setAttribute('src', list[i][1]);
+            photoBtn.setAttribute('src', "first\\" + list[i][1]);
             buttonCheckBox.setAttribute('type', 'checkbox');
             buttonCheckBox.setAttribute('class', 'listCheckBox');
             newLists.appendChild(label);
@@ -113,8 +110,6 @@ if (buttonTreshStreet.onclick = function() {
             ["Ул Прямая", "trash_street_4.jpg"],
         ];
         prevList = document.getElementsByClassName("listsDL");
-        console.log(list1);
-        console.log(prevList);
         if (prevList.length > 0)
             prevList[0].remove();
         for (var i = 0; i < list1.length; ++i) {
@@ -127,7 +122,7 @@ if (buttonTreshStreet.onclick = function() {
             label.setAttribute('class', 'listLabel');
             label.innerHTML = list1[i][0];
             photoBtn.setAttribute('class', 'listButton');
-            photoBtn.setAttribute('src', list1[i][1]);
+            photoBtn.setAttribute('src', "second\\" + list1[i][1]);
             buttonClose.setAttribute('class', 'listBtnClose');
             buttonClose.setAttribute('id', 'listBtnClose')
             buttonClose.innerHTML = 'X';
@@ -135,7 +130,6 @@ if (buttonTreshStreet.onclick = function() {
             newLists.appendChild(photoBtn);
             newLists.appendChild(buttonClose);
             if (document.getElementsByClassName('listsDL').length == 0) {
-                console.log("True");
                 listTag.setAttribute('class', 'listsDL');
                 listTag.appendChild(newLists);
                 parents = document.getElementsByClassName('listsDiv');
@@ -146,7 +140,6 @@ if (buttonTreshStreet.onclick = function() {
             }
         }
         buttonClose = document.getElementsByClassName("listBtnClose");
-        console.log("len = " + buttonClose.length);
         for (var i = 0; i < buttonClose.length; ++i) {
             if (buttonClose[i].onclick = function() {
                     this.parentNode.remove();
@@ -168,18 +161,15 @@ if (buttonDanger.onclick = function() {
             ["Адрес2", "Фото"]
         ];
         prevList = document.getElementsByClassName("listsDL");
-        console.log(prevList);
         if (prevList.length > 0)
             prevList[0].remove();
         for (var i = 0; i < list2.length; ++i) {
-            console.log(list2[i]);
             var listTag = document.createElement('dl');
             var newLists = document.createElement('dt');
             newLists.setAttribute('class', 'lists');
             var label = document.createElement('label');
             var photoBtn = document.createElement('button');
             var buttonClose = document.createElement('button');
-            console.log(list2[i][0]);
             label.innerText = list2[i][0];
             label.setAttribute('class', 'listLabel');
             photoBtn.setAttribute('class', 'listButton');
@@ -191,7 +181,6 @@ if (buttonDanger.onclick = function() {
             newLists.appendChild(photoBtn);
             newLists.appendChild(buttonClose);
             if (document.getElementsByClassName('listsDL').length == 0) {
-                console.log("True");
                 listTag.setAttribute('class', 'listsDL');
                 listTag.appendChild(newLists);
                 parents = document.getElementsByClassName('listsDiv');
@@ -203,17 +192,63 @@ if (buttonDanger.onclick = function() {
         }
         buttonClose = document.getElementsByClassName("listBtnClose");
         for (var i = 0; i < buttonClose.length; ++i) {
-            console.log(i);
             if (buttonClose[i].onclick = function() {
                     this.parentNode.remove();
                 });
         }
 
-        console.log(buttonClose);
         buttonTresh.style.background = "#ccccc5";
         buttonTresh.style.color = "#000000";
         buttonTreshStreet.style.background = "#ccccc5";
         buttonTreshStreet.style.color = "#000000";
         buttonDanger.style.background = "#36281d";
         buttonDanger.style.color = "#ffffff";
+    });
+
+
+if (archive.onclick = function() {
+        if (document.getElementsByClassName('calen').length == 0) {
+            p = document.createElement("p");
+            del = document.createElement("div");
+            analitik = document.getElementsByClassName('analitik')[0];
+            calen = document.createElement("input");
+            calen.setAttribute('type', 'month');
+            calen.setAttribute('class', 'calen');
+            calen.setAttribute('min', '2020-01-01');
+            calen.setAttribute('max', '2069-12-31');
+            button = document.createElement("a");
+            button.setAttribute('href', '#openModal');
+            button.setAttribute('font-size', '20px');
+            button.innerText = "Выбрать";
+            p.appendChild(calen);
+            p.appendChild(button);
+            del.appendChild(p);
+            analitik.appendChild(del);
+            if (button.onclick = function() {
+                    data = calen.value;
+                    console.log(data);
+                    dataStart = data + "-01";
+                    if (data.split('-')[1] == 12)
+                        dataFinish = (Number(data.split('-')[0]) + 1) + '-01-01';
+                    else
+                        dataFinish = data.split('-')[0] + '-' + (Number(data.split('-')[1]) + 1) + '-01';
+                    del.remove();
+
+                    var url = 'https://backheironka.herokuapp.com/call';
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', url, false);
+                    console.log(snd = JSON.stringify({
+                        cameraid: 1,
+                        datestart: dataStart,
+                        dateend: dataFinish
+                    }));
+                    xhr.send(snd);
+                    // xhr.responseXML;
+                    // var data = xhr.responseText;
+                    // console.log(data);
+                    // data = JSON.parse(data);
+                    // console.log(data);
+                    list = []
+                });
+        }
     });

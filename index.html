@@ -12,7 +12,10 @@
 <body>
     <div class="top">
         <label class="name">City vision</label>
-        <button class="archive">Архив</button>
+        <!-- <a class="archive" href="#openModal" id="archive">Архив</a> -->
+        <button class="archive" href=#openModal id="archive">Архив</button>
+        <div class="analitik"></div>
+
     </div>
     <div class="buttons">
         <button class="trashBtn" id="trash">Мусорные баки</button>
@@ -20,23 +23,43 @@
         <button class="trashBtn" id="Danger">Опасные ситуации</button>
     </div>
     <div class="listsDiv">
-        <dl class="listsDL">
-            <dt class="lists">
-                    <label class="listLabel">Альметьевск; Гафиатуллина 29Б; ТКО</label>
-                    <img class="listButton" src="http://drive.google.com/file/d/1ZaoFG3c3XOrWZKq-7KIFq68MYSrLcxcV/view?usp=sharing"></img>
-                    <input type="checkbox" class="listCheckBox">
-                </dt>
-            <dt class="lists">
-                    <label class="listLabel">Альметьевск; Гафиатуллина 45; ТКО</label>
-                    <img class="listButton" src="2.png"></img>
-                    <input type="checkbox" class="listCheckBox">
-                </dt>
-            <dt class="lists">
-                    <label class="listLabel">Альметьевск; Строителей 20Б; ТКО</label>
-                    <img class="listButton" src="3.png"></img>
-                    <input type="checkbox" class="listCheckBox">
-                </dt>
-        </dl>
+
+    </div>
+
+    <div id="openModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Данные за месяц</h3>
+                    <a href="#close" title="Close" class="close">×</a>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tbody class="tbd">
+                            <tr class="upRow">
+                                <th>id</th>
+                                <th>Адрес</th>
+                                <th>Дата</th>
+                                <th>Количество</th>
+                            </tr>
+                            <tr class="row">
+                                <th>1</th>
+                                <th>Пушкина</th>
+                                <th>12.02.2021</th>
+                                <th>5</th>
+                            </tr>
+                            <tr class="row">
+                                <th>1</th>
+                                <th>Пушкина</th>
+                                <th>12.02.2021</th>
+                                <th>5</th>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="script.js"></script>
