@@ -31,6 +31,13 @@ for (var i = 0; i < list.length; ++i) {
     label.setAttribute('class', 'listLabel');
     photoBtn.setAttribute('class', 'listButton');
     photoBtn.setAttribute('src', "first\\" + list[i][1]);
+
+    photoBtn.setAttribute('border', '0');
+    photoBtn.setAttribute('tabindex', '1');
+
+
+
+
     buttonCheckBox.setAttribute('type', 'checkbox');
     buttonCheckBox.setAttribute('class', 'listCheckBox');
     newLists.appendChild(label);
@@ -79,6 +86,10 @@ if (buttonTresh.onclick = function() {
             label.setAttribute('class', 'listLabel');
             photoBtn.setAttribute('class', 'listButton');
             photoBtn.setAttribute('src', "first\\" + list[i][1]);
+
+            photoBtn.setAttribute('border', '0');
+            photoBtn.setAttribute('tabindex', '1');
+
             buttonCheckBox.setAttribute('type', 'checkbox');
             buttonCheckBox.setAttribute('class', 'listCheckBox');
             newLists.appendChild(label);
@@ -123,6 +134,10 @@ if (buttonTreshStreet.onclick = function() {
             label.innerHTML = list1[i][0];
             photoBtn.setAttribute('class', 'listButton');
             photoBtn.setAttribute('src', "second\\" + list1[i][1]);
+
+            photoBtn.setAttribute('border', '0');
+            photoBtn.setAttribute('tabindex', '1');
+
             buttonClose.setAttribute('class', 'listBtnClose');
             buttonClose.setAttribute('id', 'listBtnClose')
             buttonClose.innerHTML = 'X';
@@ -156,9 +171,9 @@ if (buttonTreshStreet.onclick = function() {
 
 if (buttonDanger.onclick = function() {
         var list2 = [
-            ["Адрес", "Фото"],
-            ["Адрес1", "Фото"],
-            ["Адрес2", "Фото"]
+            ["Ул Пригородная", "1.jpg"],
+            ["Ул Дачная", "2.jpg"],
+            ["Ул Линейная", "3.jpg"],
         ];
         prevList = document.getElementsByClassName("listsDL");
         if (prevList.length > 0)
@@ -168,12 +183,14 @@ if (buttonDanger.onclick = function() {
             var newLists = document.createElement('dt');
             newLists.setAttribute('class', 'lists');
             var label = document.createElement('label');
-            var photoBtn = document.createElement('button');
+            var photoBtn = document.createElement('img');
             var buttonClose = document.createElement('button');
             label.innerText = list2[i][0];
             label.setAttribute('class', 'listLabel');
             photoBtn.setAttribute('class', 'listButton');
-            photoBtn.innerHTML = list2[i][1];
+            photoBtn.setAttribute('src', 'third\\' + list2[i][1]);
+            photoBtn.setAttribute('border', '0');
+            photoBtn.setAttribute('tabindex', '1');
             buttonClose.setAttribute('class', 'listBtnClose');
             buttonClose.setAttribute('id', 'listBtnClose');
             buttonClose.innerHTML = 'X';

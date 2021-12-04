@@ -246,3 +246,14 @@ table {
     line-height: 1.1;
     color: rgb(0, 0, 0);
 }
+
+.listButton {
+    width: 150px;
+    cursor: pointer;
+    display: inline;
+}
+
+.listButton:focus {
+    width: auto;
+    z-index: 100;
+}
